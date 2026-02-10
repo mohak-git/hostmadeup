@@ -10,6 +10,10 @@ import {
 } from "@/components/marketing";
 import { PricingTable } from "@/components/marketing/pricing-table";
 import { Button } from "@/components/ui/button";
+import { DotsPattern, WavePattern } from "@/components/visuals/abstract-shapes";
+import { BackgroundBlobs } from "@/components/visuals/background-blobs";
+import { FadeIn } from "@/components/visuals/fade-in";
+import { SectionHeading } from "@/components/visuals/section-heading";
 import { coreFeatures, trustSignals } from "@/config/features";
 import { webHostingPlans } from "@/config/pricing";
 import { ArrowRight } from "lucide-react";
@@ -26,151 +30,164 @@ export default function HomePage() {
                     title="Hosting Built for"
                     titleHighlight="Peak Performance"
                     description="Deploy web apps, databases, and custom infrastructure on our global edge network. NVMe storage, 99.99% uptime, 24/7 expert support."
-                    stats={[
-                        { value: trustSignals.uptime, label: "Uptime SLA" },
-                        { value: trustSignals.users, label: "Active Users" },
-                        {
-                            value: trustSignals.rating,
-                            label: "Customer Rating",
-                        },
-                        { value: trustSignals.support, label: "Support" },
-                    ]}
                     primaryCta={{ label: "Get Started", href: "/hosting/web" }}
                     secondaryCta={{ label: "View Plans", href: "#pricing" }}
                 />
 
-                {/* Product Selector */}
-                <section className="border-b border-border">
-                    <div className="container mx-auto px-4 py-12">
-                        <div className="flex items-center justify-between mb-8">
-                            <div>
-                                <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
-                                    Products
-                                </span>
-                                <h2 className="text-2xl font-bold mt-1">
-                                    Choose Your Solution
-                                </h2>
-                            </div>
-                        </div>
-                        <ProductSelector />
+                {/* Product Selector - Light Background + Dots Pattern */}
+                <section className="relative border-b border-border py-24 overflow-hidden">
+                    <DotsPattern className="absolute top-0 right-0 opacity-40 w-[400px] h-[400px] text-border" />
+                    <div className="container relative mx-auto px-4">
+                        <FadeIn>
+                            <SectionHeading
+                                badge="Products"
+                                title="Choose Your Solution"
+                                description="Scalable infrastructure for every stage of your growth journey."
+                            />
+                        </FadeIn>
+                        <FadeIn delay={100}>
+                            <ProductSelector />
+                        </FadeIn>
                     </div>
                 </section>
 
-                {/* Features */}
-                <section className="border-b border-border">
-                    <div className="container mx-auto px-4 py-12">
-                        <div className="flex items-center justify-between mb-8">
-                            <div>
-                                <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
-                                    Infrastructure
-                                </span>
-                                <h2 className="text-2xl font-bold mt-1">
-                                    Enterprise-Grade Features
-                                </h2>
-                            </div>
-                        </div>
-                        <FeatureGrid features={coreFeatures} />
+                {/* Features - Muted Background + Wave Pattern */}
+                <section className="relative border-b border-border bg-muted/30 py-24 overflow-hidden">
+                    <WavePattern
+                        className="absolute bottom-0 left-0 w-full h-32 opacity-10 text-brand-500"
+                        preserveAspectRatio="none"
+                    />
+                    <div className="container relative mx-auto px-4">
+                        <FadeIn>
+                            <SectionHeading
+                                badge="Infrastructure"
+                                title="Enterprise-Grade Features"
+                                description="Built on cutting-edge hardware with redundant networks and automated failover."
+                            />
+                        </FadeIn>
+                        <FadeIn delay={100}>
+                            <FeatureGrid features={coreFeatures} />
+                        </FadeIn>
                     </div>
                 </section>
 
-                {/* Trust Signals Bento */}
-                <section className="border-b border-border bg-card">
-                    <div className="container mx-auto px-4 py-12">
-                        <BentoGrid className="grid-cols-2 md:grid-cols-4">
-                            <BentoCell>
-                                <BentoStat
-                                    value={trustSignals.uptime}
-                                    label="Guaranteed Uptime"
+                {/* Trust Signals Bento - Dark/Card Background */}
+                <section className="relative border-b border-border bg-card py-24">
+                    <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none" />
+                    <div className="container relative mx-auto px-4">
+                        <FadeIn>
+                            <SectionHeading
+                                badge="Reliability"
+                                title="Global Scale & Performance"
+                                align="center"
+                                className="mb-16"
+                            />
+                        </FadeIn>
+                        <FadeIn delay={100}>
+                            <BentoGrid className="grid-cols-2 md:grid-cols-4 max-w-5xl mx-auto shadow-2xl shadow-black/5">
+                                <BentoCell>
+                                    <BentoStat
+                                        value={trustSignals.uptime}
+                                        label="Guaranteed Uptime"
+                                    />
+                                </BentoCell>
+                                <BentoCell>
+                                    <BentoStat
+                                        value={trustSignals.users}
+                                        label="Active Customers"
+                                    />
+                                </BentoCell>
+                                <BentoCell>
+                                    <BentoStat
+                                        value="12"
+                                        label="Global Data Centers"
+                                    />
+                                </BentoCell>
+                                <BentoCell>
+                                    <BentoStat
+                                        value="<5min"
+                                        label="Avg Response Time"
+                                    />
+                                </BentoCell>
+                            </BentoGrid>
+                        </FadeIn>
+                    </div>
+                </section>
+
+                {/* Competitor Comparison - Light Background */}
+                <section className="relative border-b border-border py-24">
+                    <div className="container mx-auto px-4">
+                        <FadeIn>
+                            <SectionHeading
+                                badge="Comparison"
+                                title="Why Choose Us"
+                                description="See how we stack up against traditional hosting providers."
+                            />
+                        </FadeIn>
+                        <FadeIn delay={100}>
+                            <ComparisonTable />
+                        </FadeIn>
+                    </div>
+                </section>
+
+                {/* Pricing Teaser - Muted Background + Ambient Glow */}
+                <section
+                    id="pricing"
+                    className="relative border-b border-border bg-muted/30 py-24 overflow-hidden"
+                >
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-500/5 rounded-6 blur-3xl" />
+                    <div className="container relative mx-auto px-4">
+                        <FadeIn>
+                            <div className="flex items-end justify-between mb-12">
+                                <SectionHeading
+                                    badge="Pricing"
+                                    title="Simple, Transparent Pricing"
+                                    description="No hidden fees. No contracts. Cancel anytime."
                                 />
-                            </BentoCell>
-                            <BentoCell>
-                                <BentoStat
-                                    value={trustSignals.users}
-                                    label="Active Customers"
-                                />
-                            </BentoCell>
-                            <BentoCell>
-                                <BentoStat
-                                    value="12"
-                                    label="Global Data Centers"
-                                />
-                            </BentoCell>
-                            <BentoCell>
-                                <BentoStat
-                                    value="<5min"
-                                    label="Avg Response Time"
-                                />
-                            </BentoCell>
-                        </BentoGrid>
-                    </div>
-                </section>
-
-                {/* Competitor Comparison */}
-                <section className="border-b border-border">
-                    <div className="container mx-auto px-4 py-12">
-                        <div className="flex items-center justify-between mb-8">
-                            <div>
-                                <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
-                                    Comparison
-                                </span>
-                                <h2 className="text-2xl font-bold mt-1">
-                                    Why Choose Us
-                                </h2>
                             </div>
-                        </div>
-                        <ComparisonTable />
+                        </FadeIn>
+                        <FadeIn delay={100}>
+                            <PricingTable plans={webHostingPlans} />
+                        </FadeIn>
                     </div>
                 </section>
 
-                {/* Pricing Teaser */}
-                <section id="pricing" className="border-b border-border">
-                    <div className="container mx-auto px-4 py-12">
-                        <div className="flex items-center justify-between mb-8">
-                            <div>
-                                <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
-                                    Pricing
-                                </span>
-                                <h2 className="text-2xl font-bold mt-1">
-                                    Simple, Transparent Pricing
-                                </h2>
+                {/* Final CTA - Brand Background */}
+                <section className="relative border-b border-border overflow-hidden bg-zinc-950 text-white py-32">
+                    <div className="absolute inset-0 bg-brand-950/20" />
+                    <BackgroundBlobs className="opacity-20" />
+
+                    <div className="container relative mx-auto px-4 text-center">
+                        <FadeIn>
+                            <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
+                                Ready to Deploy?
+                            </h2>
+                            <p className="text-zinc-400 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+                                Join 150,000+ developers who trust Hostmadeup
+                                for their infrastructure. Deploy your first app
+                                in under 5 minutes.
+                            </p>
+                            <div className="flex flex-col sm:flex-row justify-center gap-4">
+                                <Button
+                                    size="lg"
+                                    asChild
+                                    className="h-12 px-8 rounded-6 text-base bg-brand-600 hover:bg-brand-500 text-white border-0 shadow-lg shadow-brand-500/25"
+                                >
+                                    <Link href="/hosting/web">
+                                        Get Started
+                                        <ArrowRight className="h-4 w-4 ml-2" />
+                                    </Link>
+                                </Button>
+                                <Button
+                                    size="lg"
+                                    variant="outline"
+                                    asChild
+                                    className="h-12 px-8 rounded-6 text-base bg-transparent border-zinc-800 text-white hover:bg-zinc-800 hover:text-white"
+                                >
+                                    <Link href="/contact">Contact Sales</Link>
+                                </Button>
                             </div>
-                            <Button
-                                variant="outline"
-                                asChild
-                                className="hidden md:inline-flex gap-2"
-                            >
-                                <Link href="/hosting/web">
-                                    View All Plans
-                                    <ArrowRight className="h-4 w-4" />
-                                </Link>
-                            </Button>
-                        </div>
-                        <PricingTable plans={webHostingPlans} />
-                    </div>
-                </section>
-
-                {/* Final CTA */}
-                <section className="border-b border-border bg-accent/30">
-                    <div className="container mx-auto px-4 py-16 text-center">
-                        <h2 className="text-3xl font-bold mb-4">
-                            Ready to Deploy?
-                        </h2>
-                        <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-                            Join 150,000+ developers who trust Hostmadeup for
-                            their infrastructure. Deploy your first app in under
-                            5 minutes.
-                        </p>
-                        <div className="flex justify-center gap-3">
-                            <Button size="lg" asChild className="gap-2">
-                                <Link href="/hosting/web">
-                                    Get Started
-                                    <ArrowRight className="h-4 w-4" />
-                                </Link>
-                            </Button>
-                            <Button size="lg" variant="outline" asChild>
-                                <Link href="/contact">Contact Sales</Link>
-                            </Button>
-                        </div>
+                        </FadeIn>
                     </div>
                 </section>
             </main>

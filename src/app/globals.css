@@ -4,10 +4,10 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================
-   HOSTMADEUP - TECHNICAL PRECISION DESIGN SYSTEM
+   HOSTMADEUP - MODERN CLOUD INFRASTRUCTURE
    ============================================
-   Sharp corners, 1px visible borders, monospace data
-   High-contrast, data-dense infrastructure aesthetic
+   Premium, depth-rich, technically sophisticated.
+   Indigo accents, subtle gradients, and refined motion.
    ============================================ */
 
 @theme inline {
@@ -35,6 +35,19 @@
     --color-input: var(--input);
     --color-ring: var(--ring);
 
+    /* Brand Colors */
+    --color-brand-50: #eef2ff;
+    --color-brand-100: #e0e7ff;
+    --color-brand-200: #c7d2fe;
+    --color-brand-300: #a5b4fc;
+    --color-brand-400: #818cf8;
+    --color-brand-500: #6366f1;
+    --color-brand-600: #4f46e5;
+    --color-brand-700: #4338ca;
+    --color-brand-800: #3730a3;
+    --color-brand-900: #312e81;
+    --color-brand-950: #1e1b4b;
+
     /* Chart Colors */
     --color-chart-1: var(--chart-1);
     --color-chart-2: var(--chart-2);
@@ -52,22 +65,48 @@
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-ring: var(--sidebar-ring);
 
-    /* Technical Precision: ZERO radius */
-    --radius-sm: 0px;
-    --radius-md: 0px;
-    --radius-lg: 0px;
-    --radius-xl: 0px;
-    --radius-2xl: 0px;
-    --radius-3xl: 0px;
-    --radius-4xl: 0px;
+    /* Modern Depth: Soft Radius */
+    --radius-sm: 0.125rem; /* 2px */
+    --radius-md: 0.375rem; /* 6px */
+    --radius-lg: 0.5rem; /* 8px */
+    --radius-xl: 0.75rem; /* 12px */
+    --radius-2xl: 1rem; /* 16px */
+    --radius-3xl: 1.5rem; /* 24px */
+    --radius-4xl: 2rem; /* 32px */
+
+    /* Animations */
+    --animate-fade-in-up: fade-in-up 0.5s ease-out forwards;
+    --animate-float: float 6s ease-in-out infinite;
+    --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+    @keyframes fade-in-up {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes float {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
 }
 
 /* ============================================
    LIGHT MODE
-   Stark white, black text, strong borders
+   Clean, crisp, with Indigo accents
    ============================================ */
 :root {
-    --radius: 0px;
+    --radius: 0.5rem;
 
     /* Background & Foreground */
     --background: #ffffff;
@@ -79,11 +118,11 @@
     --popover: #ffffff;
     --popover-foreground: #09090b;
 
-    /* Primary - Deep Black */
-    --primary: #09090b;
-    --primary-foreground: #fafafa;
+    /* Primary - Indigo */
+    --primary: #4f46e5;
+    --primary-foreground: #ffffff;
 
-    /* Secondary - Light Gray */
+    /* Secondary - Light Indigo/Gray Mix */
     --secondary: #f4f4f5;
     --secondary-foreground: #18181b;
 
@@ -98,13 +137,13 @@
     /* Destructive */
     --destructive: #ef4444;
 
-    /* Technical Precision: Strong visible borders */
-    --border: #d4d4d8;
-    --input: #d4d4d8;
-    --ring: #a1a1aa;
+    /* Borders */
+    --border: #e4e4e7;
+    --input: #e4e4e7;
+    --ring: #6366f1;
 
     /* Charts */
-    --chart-1: #2563eb;
+    --chart-1: #4f46e5;
     --chart-2: #10b981;
     --chart-3: #f59e0b;
     --chart-4: #8b5cf6;
@@ -113,69 +152,69 @@
     /* Sidebar */
     --sidebar: #fafafa;
     --sidebar-foreground: #09090b;
-    --sidebar-primary: #09090b;
-    --sidebar-primary-foreground: #fafafa;
+    --sidebar-primary: #4f46e5;
+    --sidebar-primary-foreground: #ffffff;
     --sidebar-accent: #f4f4f5;
     --sidebar-accent-foreground: #18181b;
-    --sidebar-border: #d4d4d8;
-    --sidebar-ring: #a1a1aa;
+    --sidebar-border: #e4e4e7;
+    --sidebar-ring: #6366f1;
 }
 
 /* ============================================
    DARK MODE
-   Deep black, white text, subtle borders
+   Deep Indigo-tinted Black, glowing accents
    ============================================ */
 .dark {
     /* Background & Foreground */
-    --background: #09090b;
+    --background: #020205; /* Very dark rich black/blue */
     --foreground: #fafafa;
 
     /* Cards & Popovers */
-    --card: #18181b;
+    --card: #09090b;
     --card-foreground: #fafafa;
-    --popover: #18181b;
+    --popover: #09090b;
     --popover-foreground: #fafafa;
 
-    /* Primary - White */
-    --primary: #fafafa;
-    --primary-foreground: #09090b;
+    /* Primary - Bright Indigo */
+    --primary: #6366f1;
+    --primary-foreground: #ffffff;
 
     /* Secondary */
-    --secondary: #27272a;
+    --secondary: #1e1b4b; /* Dark Indigo */
     --secondary-foreground: #fafafa;
 
     /* Muted */
-    --muted: #27272a;
+    --muted: #18181b;
     --muted-foreground: #a1a1aa;
 
     /* Accent */
-    --accent: #27272a;
+    --accent: #1e1b4b;
     --accent-foreground: #fafafa;
 
     /* Destructive */
     --destructive: #dc2626;
 
-    /* Technical Precision: Visible borders in dark */
-    --border: #3f3f46;
-    --input: #3f3f46;
-    --ring: #52525b;
+    /* Borders - Subtle Indigo tint */
+    --border: #1f1f2e;
+    --input: #1f1f2e;
+    --ring: #4338ca;
 
     /* Charts */
-    --chart-1: #3b82f6;
+    --chart-1: #6366f1;
     --chart-2: #34d399;
     --chart-3: #fbbf24;
     --chart-4: #a78bfa;
     --chart-5: #f472b6;
 
     /* Sidebar */
-    --sidebar: #18181b;
+    --sidebar: #09090b;
     --sidebar-foreground: #fafafa;
-    --sidebar-primary: #3b82f6;
-    --sidebar-primary-foreground: #fafafa;
-    --sidebar-accent: #27272a;
+    --sidebar-primary: #6366f1;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #1e1b4b;
     --sidebar-accent-foreground: #fafafa;
-    --sidebar-border: #3f3f46;
-    --sidebar-ring: #52525b;
+    --sidebar-border: #1f1f2e;
+    --sidebar-ring: #4338ca;
 }
 
 /* ============================================
@@ -187,7 +226,7 @@
     }
 
     body {
-        @apply bg-background text-foreground antialiased;
+        @apply bg-background text-foreground antialiased selection:bg-brand-500/30 selection:text-brand-500;
     }
 
     /* Technical Precision: Monospace for data elements */
@@ -202,26 +241,26 @@
 }
 
 /* ============================================
-   UTILITY CLASSES
+   UTILITY CLASSES - VISUAL UPGRADE
    ============================================ */
 @layer utilities {
-    /* Bento Grid Cells */
+    /* Bento Grid Cells - Enhanced Depth */
     .bento-cell {
-        @apply border border-border bg-card p-6;
+        @apply border border-border/50 bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-500/20 hover:-translate-y-1 rounded-xl;
     }
 
-    /* Grid with visible borders */
+    /* Grid with visible borders - Softened */
     .grid-bordered {
-        @apply border border-border;
+        @apply gap-4;
     }
 
     .grid-bordered > * {
-        @apply border-r border-b border-border last:border-r-0;
+        @apply border border-border/50 rounded-xl bg-card shadow-sm hover:shadow-md transition-all duration-300;
     }
 
     /* Data display with mono font */
     .data-value {
-        @apply font-mono text-foreground tabular-nums;
+        @apply font-mono text-foreground tabular-nums tracking-tight;
     }
 
     /* Spec labels */
@@ -231,11 +270,24 @@
 
     /* Infrastructure card style */
     .infra-card {
-        @apply border border-border bg-card hover:bg-accent/50 transition-colors duration-150;
+        @apply border border-border/50 bg-card hover:bg-muted/50 transition-all duration-200 rounded-xl shadow-sm hover:shadow-md hover:border-brand-500/30;
     }
 
     /* Terminal-style blocks */
     .terminal-block {
-        @apply bg-zinc-950 dark:bg-zinc-900 text-zinc-100 font-mono text-sm p-4 border border-zinc-800;
+        @apply bg-zinc-950 dark:bg-zinc-900 text-zinc-100 font-mono text-sm p-4 border border-zinc-800 rounded-lg shadow-inner;
+    }
+
+    /* Background Utilities */
+    .bg-grid-pattern {
+        background-size: 40px 40px;
+        background-image:
+            linear-gradient(to right, var(--color-border) 1px, transparent 1px),
+            linear-gradient(to bottom, var(--color-border) 1px, transparent 1px);
+        mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    }
+
+    .bg-gradient-radial {
+        background-image: radial-gradient(var(--tw-gradient-stops));
     }
 }

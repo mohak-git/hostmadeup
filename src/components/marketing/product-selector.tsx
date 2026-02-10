@@ -53,7 +53,7 @@ export function ProductSelector({ className }: ProductSelectorProps) {
     return (
         <div
             className={cn(
-                "grid md:grid-cols-5 gap-0 border border-border",
+                "grid md:grid-cols-2 lg:grid-cols-5 gap-4",
                 className,
             )}
         >
@@ -63,28 +63,30 @@ export function ProductSelector({ className }: ProductSelectorProps) {
                     <Link
                         key={product.id}
                         href={product.href}
-                        className="group border-r border-b border-border last:border-r-0 p-6 bg-card hover:bg-accent/50 transition-colors flex flex-col"
+                        className="group relative flex flex-col p-6 bg-card hover:bg-muted/50 border border-border/50 rounded-xl shadow-sm transition-all duration-300 hover:shadow-md hover:border-brand-500/20 hover:-translate-y-1"
                     >
                         <div className="flex items-center justify-between mb-4">
-                            <div className="p-2 border border-border group-hover:border-foreground/50 transition-colors">
+                            <div className="p-2.5 rounded-lg bg-brand-50 dark:bg-brand-950/30 text-brand-600 dark:text-brand-400 group-hover:scale-110 transition-transform duration-300">
                                 <Icon className="h-5 w-5" />
                             </div>
-                            <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            <ArrowRight className="h-4 w-4 text-muted-foreground opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                         </div>
 
-                        <h3 className="font-bold mb-1">{product.title}</h3>
-                        <p className="text-sm text-muted-foreground mb-4 flex-1">
+                        <h3 className="font-bold mb-2 text-foreground">
+                            {product.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground mb-6 flex-1 leading-relaxed">
                             {product.description}
                         </p>
 
-                        <div className="grid grid-cols-2 gap-2 pt-4 border-t border-border">
+                        <div className="grid grid-cols-2 gap-3 pt-4 border-t border-border/40">
                             {Object.entries(product.specs).map(
                                 ([key, value]) => (
                                     <div key={key}>
-                                        <div className="text-[10px] uppercase tracking-wider text-muted-foreground">
+                                        <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold mb-0.5">
                                             {key}
                                         </div>
-                                        <div className="font-mono text-sm">
+                                        <div className="font-mono text-sm font-medium text-foreground/90">
                                             {value}
                                         </div>
                                     </div>
