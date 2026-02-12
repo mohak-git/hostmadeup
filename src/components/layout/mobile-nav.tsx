@@ -131,21 +131,9 @@ export function MobileNav() {
                 </ScrollArea>
 
                 <div className="absolute bottom-0 left-0 right-0 border-t border-border bg-background p-4">
-                    <div className="flex gap-2">
-                        <Button
-                            variant="outline"
-                            className="flex-1"
-                            onClick={() => setOpen(false)}
-                        >
-                            Log In
-                        </Button>
-                        <Button
-                            className="flex-1"
-                            onClick={() => setOpen(false)}
-                        >
-                            Get Started
-                        </Button>
-                    </div>
+                    <Button className="flex-1" onClick={() => setOpen(false)}>
+                        Log In
+                    </Button>
                 </div>
             </SheetContent>
         </Sheet>

@@ -30,7 +30,6 @@ export default function AupPage() {
     return (
         <>
             <PageHero
-                badge="Legal"
                 title="Acceptable Use Policy"
                 description="Guidelines for using our services responsibly."
             />

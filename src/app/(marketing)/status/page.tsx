@@ -22,7 +22,6 @@ export default function StatusPage() {
     return (
         <>
             <PageHero
-                badge="Status"
                 title="System Status"
                 description="Real-time status of all services and infrastructure."
             />
@@ -32,11 +31,7 @@ export default function StatusPage() {
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Services"
-                    title="Service Status"
-                    centered
-                />
+                <SectionHeader title="Service Status" centered />
                 <div className="grid md:grid-cols-4 gap-0 border border-border">
                     {statusServices.map((service) => (
                         <div
@@ -51,11 +46,7 @@ export default function StatusPage() {
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Regions"
-                    title="Data Center Status"
-                    centered
-                />
+                <SectionHeader title="Data Center Status" centered />
                 <div className="grid md:grid-cols-3 gap-0 border border-border">
                     {statusDatacenters.map((dc) => (
                         <div

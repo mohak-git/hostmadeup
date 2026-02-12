@@ -26,7 +26,6 @@ export default function GoogleWorkspacePage() {
     return (
         <>
             <PageHero
-                badge="Google Workspace"
                 title="Gmail, Drive & More for Business"
                 description="Get custom email, cloud storage, and collaboration tools powered by Google. We're an official Google Workspace reseller."
             />
@@ -36,11 +35,7 @@ export default function GoogleWorkspacePage() {
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Plans"
-                    title="Google Workspace Plans"
-                    centered
-                />
+                <SectionHeader title="Google Workspace Plans" centered />
                 <div className="grid md:grid-cols-3 gap-0 border border-border">
                     {workspacePlans.map((plan) => (
                         <div
@@ -93,20 +88,12 @@ export default function GoogleWorkspacePage() {
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Included"
-                    title="Apps Included"
-                    centered
-                />
+                <SectionHeader title="Apps Included" centered />
                 <TagGrid items={workspaceApps} columns={6} />
             </Section>
 
             <Section background="card">
-                <SectionHeader
-                    badge="Benefits"
-                    title="Why Buy Through Hostmadeup"
-                    centered
-                />
+                <SectionHeader title="Why Buy Through Hostmadeup" centered />
                 <SimpleCardGrid
                     items={workspaceBenefits}
                     columns={3}

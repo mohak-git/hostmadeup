@@ -27,7 +27,6 @@ export default function WebHostingPage() {
     return (
         <>
             <PageHero
-                badge="Web Hosting"
                 title="Reliable Hosting for Every Website"
                 description="Deploy static sites, PHP apps, and dynamic content on our optimized shared hosting platform."
             />
@@ -37,29 +36,17 @@ export default function WebHostingPage() {
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Plans"
-                    title="Choose Your Plan"
-                    centered
-                />
+                <SectionHeader title="Choose Your Plan" centered />
                 <PricingTable plans={webHostingPlans} />
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Features"
-                    title="What's Included"
-                    centered
-                />
+                <SectionHeader title="What's Included" centered />
                 <FeatureCardGrid features={webHostingFeatures} columns={3} />
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Stack"
-                    title="Supported Technologies"
-                    centered
-                />
+                <SectionHeader title="Supported Technologies" centered />
                 <div className="grid md:grid-cols-3 gap-6">
                     <TechBlock title="PHP Versions" items={techStack.php} />
                     <TechBlock title="Databases" items={techStack.databases} />
@@ -68,7 +55,7 @@ export default function WebHostingPage() {
             </Section>
 
             <Section background="card">
-                <SectionHeader badge="Use Cases" title="Perfect For" centered />
+                <SectionHeader title="Perfect For" centered />
                 <div className="grid md:grid-cols-4 gap-0 border border-border">
                     {webHostingUseCases.map((item) => (
                         <div
@@ -85,11 +72,7 @@ export default function WebHostingPage() {
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Infrastructure"
-                    title="Platform Features"
-                    centered
-                />
+                <SectionHeader title="Platform Features" centered />
                 <FeatureGrid features={coreFeatures} columns={2} />
             </Section>
         </>

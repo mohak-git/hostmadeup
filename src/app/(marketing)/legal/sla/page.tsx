@@ -41,7 +41,6 @@ export default function SlaPage() {
     return (
         <>
             <PageHero
-                badge="Legal"
                 title="Service Level Agreement"
                 description="Our commitment to uptime, performance, and support response times."
             />

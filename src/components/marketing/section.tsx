@@ -25,7 +25,6 @@ export function Section({
 }
 
 interface SectionHeaderProps {
-    badge: string;
     title: string;
     centered?: boolean;
     className?: string;
@@ -36,16 +35,12 @@ interface SectionHeaderProps {
  * Used across all marketing pages
  */
 export function SectionHeader({
-    badge,
     title,
     centered = false,
     className,
 }: SectionHeaderProps) {
     return (
         <div className={cn("mb-8", centered && "text-center", className)}>
-            <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
-                {badge}
-            </span>
             <h2 className="text-2xl font-bold mt-1">{title}</h2>
         </div>
     );

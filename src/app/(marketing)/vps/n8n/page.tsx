@@ -23,7 +23,6 @@ export default function N8nVpsPage() {
     return (
         <>
             <PageHero
-                badge="N8N VPS"
                 title="N8N Automation Hosting"
                 description="Pre-configured virtual servers optimized for N8N workflow automation. One-click deployment with automatic updates."
             />
@@ -33,11 +32,7 @@ export default function N8nVpsPage() {
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Pre-configured"
-                    title="N8N VPS Packages"
-                    centered
-                />
+                <SectionHeader title="N8N VPS Packages" centered />
                 <div className="grid md:grid-cols-3 gap-0 border border-border">
                     {n8nPlans.map((plan) => (
                         <div
@@ -87,7 +82,7 @@ export default function N8nVpsPage() {
             </Section>
 
             <Section>
-                <SectionHeader badge="Included" title="What You Get" centered />
+                <SectionHeader title="What You Get" centered />
                 <FeatureCardGrid features={n8nFeatures} columns={3} />
             </Section>
 
@@ -109,11 +104,7 @@ export default function N8nVpsPage() {
             </section>
 
             <Section>
-                <SectionHeader
-                    badge="Infrastructure"
-                    title="Platform Features"
-                    centered
-                />
+                <SectionHeader title="Platform Features" centered />
                 <FeatureGrid features={coreFeatures} columns={2} />
             </Section>
         </>

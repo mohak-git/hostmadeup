@@ -16,7 +16,6 @@ export default function SupportPage() {
     return (
         <>
             <PageHero
-                badge="Support"
                 title="How Can We Help?"
                 description="Find answers in our knowledge base or get in touch with our support team."
             />
@@ -34,11 +33,7 @@ export default function SupportPage() {
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Knowledge Base"
-                    title="Browse by Topic"
-                    centered
-                />
+                <SectionHeader title="Browse by Topic" centered />
                 <div className="grid md:grid-cols-3 gap-0 border border-border">
                     {supportCategories.map((cat) => (
                         <div
@@ -68,7 +63,7 @@ export default function SupportPage() {
             </Section>
 
             <Section background="card">
-                <SectionHeader badge="Contact" title="Get in Touch" centered />
+                <SectionHeader title="Get in Touch" centered />
                 <div className="grid md:grid-cols-3 gap-0 border border-border">
                     {contactOptions.map((opt) => (
                         <div

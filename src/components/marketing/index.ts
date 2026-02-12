@@ -4,6 +4,7 @@ export { DatacenterGrid } from "./datacenter-grid";
 export { DomainSearch } from "./domain-search";
 export { FeatureCardGrid, SimpleCardGrid } from "./feature-cards";
 export { FeatureGrid, SpecGrid } from "./feature-grid";
+export { FeaturesBento } from "./features-bento";
 export { Hero, PageHero } from "./hero";
 export { PricingTable } from "./pricing-table";
 export { ProductSelector } from "./product-selector";

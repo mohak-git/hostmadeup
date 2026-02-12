@@ -15,17 +15,12 @@ export default function ContactPage() {
     return (
         <>
             <PageHero
-                badge="Contact"
                 title="Get in Touch"
                 description="Have a question? Our team is available 24/7 to help you succeed."
             />
 
             <Section>
-                <SectionHeader
-                    badge="Quick Contact"
-                    title="Reach Out"
-                    centered
-                />
+                <SectionHeader title="Reach Out" centered />
                 <div className="grid md:grid-cols-3 gap-0 border border-border">
                     <div className="border-r border-border last:border-r-0 p-6 text-center">
                         <MessageCircle className="h-8 w-8 mx-auto mb-4" />
@@ -61,11 +56,7 @@ export default function ContactPage() {
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Departments"
-                    title="Direct Contact"
-                    centered
-                />
+                <SectionHeader title="Direct Contact" centered />
                 <div className="grid md:grid-cols-3 gap-0 border border-border">
                     {contactDepartments.map((dept) => (
                         <div
@@ -83,11 +74,7 @@ export default function ContactPage() {
             </Section>
 
             <Section background="card">
-                <SectionHeader
-                    badge="Message"
-                    title="Send a Message"
-                    centered
-                />
+                <SectionHeader title="Send a Message" centered />
                 <div className="max-w-md mx-auto">
                     <div className="border border-border p-8 bg-background">
                         <div className="space-y-4">

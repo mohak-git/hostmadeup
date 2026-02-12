@@ -28,7 +28,6 @@ export default function NodejsHostingPage() {
     return (
         <>
             <PageHero
-                badge="Node.js Hosting"
                 title="Deploy Node.js Apps Instantly"
                 description="Push your code and we handle the rest. Zero-config deployments for Express, Next.js, Remix, and more."
             />
@@ -38,20 +37,12 @@ export default function NodejsHostingPage() {
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Frameworks"
-                    title="Supported Frameworks"
-                    centered
-                />
+                <SectionHeader title="Supported Frameworks" centered />
                 <TagGrid items={nodejsFrameworks} columns={6} />
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Runtimes"
-                    title="Node.js Versions"
-                    centered
-                />
+                <SectionHeader title="Node.js Versions" centered />
                 <div className="flex flex-wrap gap-4 justify-center">
                     {techStack.nodejs.map((v) => (
                         <div
@@ -65,11 +56,7 @@ export default function NodejsHostingPage() {
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Features"
-                    title="Platform Features"
-                    centered
-                />
+                <SectionHeader title="Platform Features" centered />
                 <FeatureCardGrid features={nodejsFeatures} columns={3} />
             </Section>
 
@@ -90,11 +77,7 @@ export default function NodejsHostingPage() {
             </section>
 
             <Section>
-                <SectionHeader
-                    badge="Infrastructure"
-                    title="Core Features"
-                    centered
-                />
+                <SectionHeader title="Core Features" centered />
                 <FeatureGrid features={coreFeatures} columns={2} />
             </Section>
         </>

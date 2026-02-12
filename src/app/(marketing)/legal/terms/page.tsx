@@ -44,7 +44,6 @@ export default function TermsPage() {
     return (
         <>
             <PageHero
-                badge="Legal"
                 title="Terms of Service"
                 description="Please read these terms carefully before using our services."
             />

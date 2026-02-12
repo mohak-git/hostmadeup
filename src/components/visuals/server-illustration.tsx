@@ -36,23 +36,12 @@ export function ServerIllustration({ className }: { className?: string }) {
                 className="animate-float"
                 style={{ animationDuration: "6s" }}
             />
-            {/* Shadow */}
-            <ellipse
-                cx="200"
-                cy="270"
-                rx="100"
-                ry="20"
-                fill="black"
-                opacity="0.2"
-                filter="url(#glow)"
-                className="animate-pulse-slow"
-            />
 
             {/* Server Stack Layers */}
             {/* Bottom Layer */}
             <g
                 className="animate-float"
-                style={{ animationDelay: "0.2s", animationDuration: "5.8s" }}
+                style={{ animationDelay: "1s", animationDuration: "6s" }}
             >
                 <path
                     d="M100 160 L200 190 L300 160 L200 130 Z"
@@ -73,7 +62,7 @@ export function ServerIllustration({ className }: { className?: string }) {
             {/* Middle Layer */}
             <g
                 className="animate-float"
-                style={{ animationDelay: "0.4s", animationDuration: "6.2s" }}
+                style={{ animationDelay: "0.5s", animationDuration: "6s" }}
             >
                 <path
                     d="M100 130 L200 160 L300 130 L200 100 Z"

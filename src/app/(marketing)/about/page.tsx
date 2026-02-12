@@ -28,7 +28,6 @@ export default function AboutPage() {
     return (
         <>
             <PageHero
-                badge="About Us"
                 title="Built by Engineers, for Engineers"
                 description="We're infrastructure engineers who got frustrated with overselling and poor support. So we built something better."
             />
@@ -38,11 +37,7 @@ export default function AboutPage() {
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Our Story"
-                    title="Why We Built Hostmadeup"
-                    centered
-                />
+                <SectionHeader title="Why We Built Hostmadeup" centered />
                 <div className="max-w-3xl mx-auto space-y-4 text-center text-muted-foreground">
                     {companyStory.map((p, i) => (
                         <p key={i}>{p}</p>
@@ -51,29 +46,17 @@ export default function AboutPage() {
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Values"
-                    title="What We Stand For"
-                    centered
-                />
+                <SectionHeader title="What We Stand For" centered />
                 <SimpleCardGrid items={companyValues} columns={3} centered />
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Global"
-                    title="Data Center Locations"
-                    centered
-                />
+                <SectionHeader title="Data Center Locations" centered />
                 <DatacenterGrid showLatency />
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Infrastructure"
-                    title="Platform Features"
-                    centered
-                />
+                <SectionHeader title="Platform Features" centered />
                 <FeatureGrid features={coreFeatures} columns={2} />
             </Section>
         </>

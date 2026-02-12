@@ -9,15 +9,31 @@ import { cn } from "@/lib/utils";
 import { ChevronDown, Server } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import * as React from "react";
+import { useEffect, useState } from "react";
 import { MobileNav } from "./mobile-nav";
 
 export function Navbar() {
     const pathname = usePathname();
-    const [hoveredItem, setHoveredItem] = React.useState<string | null>(null);
+    const [navbarHovered, setNavbarHovered] = useState(false);
+    const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) setNavbarHovered(true);
+            else setNavbarHovered(false);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
+        <header
+            className={cn(
+                "sticky top-0 z-50 h-15 flex justify-center items-center w-full bg-transparent transition-all duration-700 ease-in-out border-b border-foreground",
+                navbarHovered &&
+                    "border-border bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60",
+            )}
+        >
             <div className="container mx-auto flex h-14 items-center justify-between px-4">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2">
@@ -97,15 +113,8 @@ export function Navbar() {
                 {/* Right Side */}
                 <div className="flex items-center gap-2">
                     <ThemeToggle />
-                    <Button
-                        variant="outline"
-                        size="sm"
-                        className="hidden sm:inline-flex"
-                    >
-                        Log In
-                    </Button>
                     <Button size="sm" className="hidden sm:inline-flex">
-                        Get Started
+                        Log In
                     </Button>
                     <MobileNav />
                 </div>

@@ -13,17 +13,12 @@ export default function BlogPage() {
     return (
         <>
             <PageHero
-                badge="Blog"
                 title="News & Updates"
                 description="The latest news, tutorials, and product updates from our team."
             />
 
             <Section>
-                <SectionHeader
-                    badge="Categories"
-                    title="Browse Topics"
-                    centered
-                />
+                <SectionHeader title="Browse Topics" centered />
                 <div className="flex flex-wrap gap-2 justify-center">
                     {blogCategories.map((cat) => (
                         <button
@@ -37,7 +32,7 @@ export default function BlogPage() {
             </Section>
 
             <Section>
-                <SectionHeader badge="Latest" title="Recent Posts" centered />
+                <SectionHeader title="Recent Posts" centered />
                 <div className="grid md:grid-cols-3 gap-0 border border-border">
                     {blogPosts.map((post) => (
                         <article

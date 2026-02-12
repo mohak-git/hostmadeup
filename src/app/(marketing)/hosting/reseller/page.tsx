@@ -2,10 +2,9 @@ import {
     FeatureCardGrid,
     FeatureGrid,
     PageHero,
-    PricingTable,
     Section,
     SectionHeader,
-    StatsBar,
+    StatsBar
 } from "@/components/marketing";
 import { Button } from "@/components/ui/button";
 import { coreFeatures } from "@/config/features";
@@ -45,7 +44,6 @@ export default function ResellerHostingPage() {
     return (
         <>
             <PageHero
-                badge="Reseller Hosting"
                 title="Start Your Hosting Business"
                 description="White-label hosting platform for agencies, developers, and entrepreneurs. Your brand, our infrastructure."
             />
@@ -55,7 +53,7 @@ export default function ResellerHostingPage() {
             </Section>
 
             <Section>
-                <SectionHeader badge="Plans" title="Reseller Plans" centered />
+                <SectionHeader title="Reseller Plans" centered />
                 <div className="grid md:grid-cols-3 gap-0 border border-border">
                     {resellerPlans.map((plan) => (
                         <div
@@ -102,20 +100,12 @@ export default function ResellerHostingPage() {
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Features"
-                    title="Reseller Features"
-                    centered
-                />
+                <SectionHeader title="Reseller Features" centered />
                 <FeatureCardGrid features={resellerFeatures} columns={3} />
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Infrastructure"
-                    title="Platform Features"
-                    centered
-                />
+                <SectionHeader title="Platform Features" centered />
                 <FeatureGrid features={coreFeatures} columns={2} />
             </Section>
         </>

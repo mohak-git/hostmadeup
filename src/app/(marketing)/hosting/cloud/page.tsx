@@ -23,7 +23,6 @@ export default function CloudHostingPage() {
     return (
         <>
             <PageHero
-                badge="Cloud Hosting"
                 title="Scalable Cloud Infrastructure"
                 description="Dedicated CPU, RAM, and NVMe storage with automatic scaling. Perfect for apps that need consistent performance."
             />
@@ -33,34 +32,22 @@ export default function CloudHostingPage() {
             </Section>
 
             <Section>
-                <SectionHeader badge="Plans" title="Cloud Plans" centered />
+                <SectionHeader title="Cloud Plans" centered />
                 <PricingTable plans={cloudHostingPlans} />
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Features"
-                    title="Cloud Features"
-                    centered
-                />
+                <SectionHeader title="Cloud Features" centered />
                 <FeatureCardGrid features={cloudFeatures} columns={3} />
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Regions"
-                    title="Global Data Centers"
-                    centered
-                />
+                <SectionHeader title="Global Data Centers" centered />
                 <DatacenterGrid showLatency />
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Infrastructure"
-                    title="Platform Features"
-                    centered
-                />
+                <SectionHeader title="Platform Features" centered />
                 <FeatureGrid features={coreFeatures} columns={2} />
             </Section>
         </>

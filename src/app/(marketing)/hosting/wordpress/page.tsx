@@ -22,7 +22,6 @@ export default function WordPressHostingPage() {
     return (
         <>
             <PageHero
-                badge="WordPress Hosting"
                 title="WordPress, Supercharged"
                 description="Purpose-built hosting optimized for WordPress. LiteSpeed cache, automatic updates, staging environments, and one-click installs."
             />
@@ -32,25 +31,17 @@ export default function WordPressHostingPage() {
             </Section>
 
             <Section>
-                <SectionHeader badge="Plans" title="WordPress Plans" centered />
+                <SectionHeader title="WordPress Plans" centered />
                 <PricingTable plans={wordpressHostingPlans} />
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Features"
-                    title="WordPress Features"
-                    centered
-                />
+                <SectionHeader title="WordPress Features" centered />
                 <FeatureCardGrid features={wordpressFeatures} columns={3} />
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Infrastructure"
-                    title="Platform Features"
-                    centered
-                />
+                <SectionHeader title="Platform Features" centered />
                 <FeatureGrid features={coreFeatures} columns={2} />
             </Section>
         </>

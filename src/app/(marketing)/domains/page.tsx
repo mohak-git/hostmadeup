@@ -19,7 +19,6 @@ export default function DomainsPage() {
     return (
         <>
             <PageHero
-                badge="Domains"
                 title="Find Your Perfect Domain"
                 description="Search over 500 domain extensions and register your brand in seconds. Free WHOIS privacy on all domains."
             />
@@ -32,7 +31,6 @@ export default function DomainsPage() {
 
             <Section>
                 <SectionHeader
-                    badge="Pricing"
                     title="Domain Pricing"
                     centered
                 />
@@ -108,7 +106,6 @@ export default function DomainsPage() {
 
             <Section>
                 <SectionHeader
-                    badge="Included"
                     title="What's Included"
                     centered
                 />

@@ -20,7 +20,6 @@ export default function DomainTransferPage() {
     return (
         <>
             <PageHero
-                badge="Domain Transfer"
                 title="Transfer Your Domains"
                 description="Move your domains to Hostmadeup with zero downtime. Get a free year extension on all transfers."
             />
@@ -61,7 +60,6 @@ export default function DomainTransferPage() {
 
             <Section>
                 <SectionHeader
-                    badge="Process"
                     title="Transfer Timeline"
                     centered
                 />
@@ -70,7 +68,6 @@ export default function DomainTransferPage() {
 
             <Section background="card">
                 <SectionHeader
-                    badge="Benefits"
                     title="Transfer Benefits"
                     centered
                 />

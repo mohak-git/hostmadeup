@@ -14,7 +14,6 @@ export default function WhoisPrivacyPage() {
     return (
         <>
             <PageHero
-                badge="WHOIS Privacy"
                 title="Protect Your Identity"
                 description="Keep your personal information private with free WHOIS protection on all domains at Hostmadeup."
             />
@@ -23,10 +22,7 @@ export default function WhoisPrivacyPage() {
                 <div className="max-w-4xl mx-auto">
                     <div className="grid md:grid-cols-2 gap-8">
                         <div>
-                            <SectionHeader
-                                badge="The Problem"
-                                title="Without WHOIS Privacy"
-                            />
+                            <SectionHeader title="Without WHOIS Privacy" />
                             <div className="border border-border p-6 bg-destructive/5">
                                 <div className="font-mono text-sm space-y-2 text-muted-foreground">
                                     <p>
@@ -60,10 +56,7 @@ export default function WhoisPrivacyPage() {
                             </p>
                         </div>
                         <div>
-                            <SectionHeader
-                                badge="The Solution"
-                                title="With WHOIS Privacy"
-                            />
+                            <SectionHeader title="With WHOIS Privacy" />
                             <div className="border border-border p-6 bg-accent/30">
                                 <div className="font-mono text-sm space-y-2 text-muted-foreground">
                                     <p>
@@ -101,11 +94,7 @@ export default function WhoisPrivacyPage() {
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Benefits"
-                    title="Why Use WHOIS Privacy"
-                    centered
-                />
+                <SectionHeader title="Why Use WHOIS Privacy" centered />
                 <div className="grid md:grid-cols-4 gap-0 border border-border">
                     {whoisBenefits.map((item) => (
                         <div

@@ -20,7 +20,6 @@ export default function EmailPage() {
     return (
         <>
             <PageHero
-                badge="Business Email"
                 title="Professional Email Hosting"
                 description="Custom email addresses for your domain with enterprise-grade security, spam protection, and mobile sync."
             />
@@ -30,25 +29,17 @@ export default function EmailPage() {
             </Section>
 
             <Section>
-                <SectionHeader badge="Plans" title="Email Plans" centered />
+                <SectionHeader title="Email Plans" centered />
                 <PricingTable plans={emailPlans} />
             </Section>
 
             <Section>
-                <SectionHeader
-                    badge="Features"
-                    title="Email Features"
-                    centered
-                />
+                <SectionHeader title="Email Features" centered />
                 <FeatureCardGrid features={emailFeatures} columns={3} />
             </Section>
 
             <Section background="card">
-                <SectionHeader
-                    badge="Security"
-                    title="Email Security"
-                    centered
-                />
+                <SectionHeader title="Email Security" centered />
                 <div className="grid md:grid-cols-4 gap-0 border border-border">
                     {emailSecurity.map((item) => (
                         <div
