@@ -1,12 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @theme inline {
     /* Typography */
-    --font-sans:
-        var(--font-tasa-explorer), ui-sans-serif, system-ui, sans-serif;
+    --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
     --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 
     /* Container  */
@@ -35,17 +34,17 @@
     --color-ring: var(--ring);
 
     /* Brand Colors */
-    --color-brand-50: #f0f9ff;
-    --color-brand-100: #e0f2fe;
-    --color-brand-200: #bae6fd;
-    --color-brand-300: #7dd3fc;
-    --color-brand-400: #38bdf8;
-    --color-brand-500: #0ea5e9;
-    --color-brand-600: #0284c7;
-    --color-brand-700: #0369a1;
-    --color-brand-800: #075985;
-    --color-brand-900: #0c4a6e;
-    --color-brand-950: #082f49;
+    --color-brand-50: #f0fbfb;
+    --color-brand-100: #d1f1f0;
+    --color-brand-200: #a3e3e1;
+    --color-brand-300: #6eced0;
+    --color-brand-400: #3db2b0;
+    --color-brand-500: #21a2a0;
+    --color-brand-600: #1a8281;
+    --color-brand-700: #186867;
+    --color-brand-800: #175353;
+    --color-brand-900: #174646;
+    --color-brand-950: #082828;
 
     /* Chart Colors */
     --color-chart-1: var(--chart-1);
@@ -131,38 +130,38 @@
 
     /* Background & Foreground */
     --background: #ffffff;
-    --foreground: #09090b;
+    --foreground: #1a1c1e;
 
     /* Cards & Popovers */
     --card: #ffffff;
-    --card-foreground: #09090b;
+    --card-foreground: #1a1c1e;
     --popover: #ffffff;
     --popover-foreground: #09090b;
 
     /* Primary */
-    --primary: #0284c7;
+    --primary: #21a2a0;
     --primary-foreground: #ffffff;
 
     /* Secondary */
-    --secondary: #f4f4f5;
-    --secondary-foreground: #18181b;
+    --secondary: #212429;
+    --secondary-foreground: #ffffff;
 
     /* Muted */
-    --muted: #f4f4f5;
-    --muted-foreground: #71717a;
+    --muted: #f1f3f3;
+    --muted-foreground: #5f6b6a;
 
     /* Accent */
-    --accent: #e0f2fe;
-    --accent-foreground: #0369a1;
-    --accent-fill-heavy: #7381da;
+    --accent: #e9f6f6;
+    --accent-foreground: #186867;
+    --accent-fill-heavy: #21a2a0;
 
     /* Destructive */
     --destructive: #ef4444;
 
     /* Borders */
-    --border: #e4e4e7;
-    --input: #e4e4e7;
-    --ring: #0ea5e9;
+    --border: #e2e8e8;
+    --input: #e2e8e8;
+    --ring: #21a2a0;
 
     /* Charts */
     --chart-1: #4f46e5;
@@ -173,28 +172,25 @@
 
     /* Sidebar */
     --sidebar: #fafafa;
-    --sidebar-foreground: #09090b;
-    --sidebar-primary: #0284c7;
+    --sidebar-foreground: #212429;
+    --sidebar-primary: #21a2a0;
     --sidebar-primary-foreground: #ffffff;
-    --sidebar-accent: #f4f4f5;
-    --sidebar-accent-foreground: #18181b;
-    --sidebar-border: #e4e4e7;
-    --sidebar-ring: #0ea5e9;
+    --sidebar-accent: #f1f3f3;
+    --sidebar-accent-foreground: #212429;
+    --sidebar-border: #e2e8e8;
+    --sidebar-ring: #21a2a0;
 
     /* Illustration */
-    --ill-fill-primary: #0ea5e9;
-    --ill-fill-secondary: #e0f2fe;
-    --ill-fill-muted: #f4f4f5;
-    --ill-stroke-strong: #0369a1;
-    --ill-stroke-subtle: #bae6fd;
-    --ill-grad-start: #0ea5e9;
-    --ill-grad-mid: #6366f1;
-    --ill-grad-end: #0c4a6e;
+    --ill-fill-primary: #21a2a0;
+    --ill-fill-secondary: #d1f1f0;
+    --ill-fill-muted: #f1f3f3;
+    --ill-stroke-strong: #186867;
+    --ill-stroke-subtle: #a3e3e1;
+    --ill-grad-start: #21a2a0;
+    --ill-grad-mid: #212429;
+    --ill-grad-end: #174646;
 }
 
-/* ============================================
-   BASE STYLES
-   ============================================ */
 @layer base {
     * {
         @apply border-border;
@@ -204,7 +200,6 @@
         @apply bg-background text-foreground antialiased selection:bg-brand-500/30 selection:text-brand-500;
     }
 
-    /* Technical Precision: Monospace for data elements */
     code,
     kbd,
     pre,
@@ -215,16 +210,11 @@
     }
 }
 
-/* ============================================
-   UTILITY CLASSES - VISUAL UPGRADE
-   ============================================ */
 @layer utilities {
-    /* Bento Grid Cells - Enhanced Depth */
     .bento-cell {
         @apply border border-border/50 bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-500/20 hover:-translate-y-1 rounded-xl;
     }
 
-    /* Grid with visible borders - Softened */
     .grid-bordered {
         @apply gap-4;
     }
@@ -233,27 +223,22 @@
         @apply border border-border/50 rounded-xl bg-card shadow-sm hover:shadow-md transition-all duration-300;
     }
 
-    /* Data display with mono font */
     .data-value {
         @apply font-mono text-foreground tabular-nums tracking-tight;
     }
 
-    /* Spec labels */
     .spec-label {
         @apply text-xs uppercase tracking-wider text-muted-foreground font-medium;
     }
 
-    /* Infrastructure card style */
     .infra-card {
         @apply border border-border/50 bg-card hover:bg-muted/50 transition-all duration-200 rounded-xl shadow-sm hover:shadow-md hover:border-brand-500/30;
     }
 
-    /* Terminal-style blocks */
     .terminal-block {
         @apply bg-zinc-950 text-zinc-100 font-mono text-sm p-4 border border-zinc-800 rounded-lg shadow-inner;
     }
 
-    /* Background Utilities */
     .bg-grid-pattern {
         background-size: 40px 40px;
         background-image:

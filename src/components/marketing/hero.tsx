@@ -1,125 +1,121 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
+import { RotatingText } from "@/components/ui/rotating-text";
 import { UserBadge } from "@/components/ui/user-badge";
 import { FadeIn } from "@/components/visuals/fade-in";
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
 interface HeroProps {
-    titleLine1: string;
-    titleHighlight: string;
-    titleLine2?: string;
+    title: string;
+    titleHighlight: string[];
     description: string;
     heroImage: string;
     primaryCta: { label: string; href: string };
     secondaryCta: { label: string; href: string };
     trustText?: string;
     trustCount?: string;
-    className?: string;
 }
 
 export function Hero({
-    titleLine1,
+    title,
     titleHighlight,
-    titleLine2,
     description,
     heroImage,
     primaryCta,
     secondaryCta,
     trustText = "creators worldwide",
     trustCount = "10,000+",
-    className,
 }: HeroProps) {
     return (
-        <section
-            className={cn(
-                "relative overflow-hidden bg-linear-to-br from-background via-brand-100  font-sans",
-                className,
-            )}
-        >
-            <div className="container max-w-8xl mx-auto px-6 lg:px-12 py-10">
-                <div className="flex items-center gap-12 lg:gap-16 ">
-                    <FadeIn className="hidden md:block w-1/2">
-                        <div className="rounded-3xl bg-brand-100 shadow-lg overflow-hidden aspect-4/3 flex items-center justify-center">
-                            {/* Image */}
-                            <Image
-                                src={heroImage}
-                                alt="Cloud hosting infrastructure"
-                                fill
-                                priority
-                                className="object-contain p-4"
+        <div className="container max-w-8xl mx-auto px-6 lg:px-12 pt-10 pb-20">
+            <div className="flex items-center gap-12 lg:gap-16 ">
+                <FadeIn className="hidden md:block w-1/2">
+                    {/* Image */}
+                    <Image
+                        src={heroImage}
+                        alt="Cloud hosting infrastructure"
+                        width={800}
+                        height={600}
+                        priority
+                        className="object-contain rounded-xl shadow-lg shadow-foreground/10"
+                    />
+                </FadeIn>
+
+                <div className="w-full md:w-1/2 flex flex-col items-start">
+                    {/* Heading */}
+                    <FadeIn>
+                        <h1 className="text-4xl max-w-2xl text-secondary md:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-bold tracking-tight mb-5">
+                            {title}
+                            <br />
+                            <RotatingText
+                                texts={titleHighlight}
+                                staggerFrom={"last"}
+                                initial={{ y: "100%" }}
+                                animate={{ y: 0 }}
+                                exit={{ y: "-150%" }}
+                                staggerDuration={0.02}
+                                splitLevelClassName="overflow-hidden tracking-wider pr-0.5 pb-0.5 sm:pr-1 sm:pb-1 md:pb-3 md:pr-3 text-brand-600"
+                                transition={{
+                                    type: "spring",
+                                    damping: 30,
+                                    stiffness: 400,
+                                }}
+                                rotationInterval={5000}
                             />
+                        </h1>
+                    </FadeIn>
+
+                    {/* Description */}
+                    <FadeIn className="w-full" delay={150}>
+                        <p className="text-base md:text-lg text-muted-foreground/90 max-w-lg mb-8 leading-relaxed">
+                            {description}
+                        </p>
+                    </FadeIn>
+
+                    {/* CTAs */}
+                    <FadeIn delay={200}>
+                        <div className="flex flex-col sm:flex-row gap-3 mb-8">
+                            {primaryCta && (
+                                <Button
+                                    asChild
+                                    size="lg"
+                                    className="h-12 px-6 text-sm font-medium shadow-lg shadow-brand-500/20 hover:shadow-brand-500/40 hover:-translate-y-0.5 transition-all duration-300 bg-brand-600 hover:bg-brand-500 text-white rounded-md"
+                                >
+                                    <Link href={primaryCta.href}>
+                                        {primaryCta.label}
+                                    </Link>
+                                </Button>
+                            )}
+                            {secondaryCta && (
+                                <Button
+                                    asChild
+                                    size="lg"
+                                    className="h-12 px-6 text-sm font-medium bg-muted hover:bg-background text-foreground border hover:border-brand-200 transition-all duration-300 rounded-md"
+                                >
+                                    <Link href={secondaryCta.href}>
+                                        {secondaryCta.label}
+                                    </Link>
+                                </Button>
+                            )}
                         </div>
                     </FadeIn>
 
-                    <div className="w-full md:w-1/2 flex flex-col items-start">
-                        {/* Heading */}
-                        <FadeIn delay={150}>
-                            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-bold tracking-tight mb-5">
-                                {titleLine1}
-                                <br />
-                                <span className="text-brand-600">
-                                    {titleHighlight}
-                                </span>{" "}
-                                {titleLine2}
-                            </h1>
-                        </FadeIn>
-
-                        {/* Description */}
-                        <FadeIn className="w-full" delay={200}>
-                            <p className="text-base md:text-lg text-muted-foreground/90 max-w-lg mb-8 leading-relaxed">
-                                {description}
+                    {/* Trust Badge */}
+                    <FadeIn delay={250}>
+                        <div className="flex items-center justify-between gap-3">
+                            <UserBadge />
+                            <p className="ml-5 text-sm sm:text-base text-muted-foreground">
+                                Trusted by{" "}
+                                <strong className="font-bold text-foreground">
+                                    {trustCount}
+                                </strong>{" "}
+                                {trustText}
                             </p>
-                        </FadeIn>
-
-                        {/* CTAs */}
-                        <FadeIn delay={250}>
-                            <div className="flex flex-col sm:flex-row gap-3 mb-8">
-                                {primaryCta && (
-                                    <Button
-                                        asChild
-                                        size="lg"
-                                        className="h-12 px-6 text-sm font-medium shadow-lg shadow-brand-500/20 hover:shadow-brand-500/40 hover:-translate-y-0.5 transition-all duration-300 bg-brand-600 hover:bg-brand-500 text-white rounded-md"
-                                    >
-                                        <Link href={primaryCta.href}>
-                                            {primaryCta.label}
-                                        </Link>
-                                    </Button>
-                                )}
-                                {secondaryCta && (
-                                    <Button
-                                        asChild
-                                        size="lg"
-                                        variant="outline"
-                                        className="h-12 px-6 text-sm font-medium hover:bg-muted/50 border-border hover:border-brand-200 rounded-md"
-                                    >
-                                        <Link href={secondaryCta.href}>
-                                            {secondaryCta.label}
-                                        </Link>
-                                    </Button>
-                                )}
-                            </div>
-                        </FadeIn>
-
-                        {/* Trust Badge */}
-                        <FadeIn delay={300}>
-                            <div className="flex items-center justify-between gap-3">
-                                <UserBadge />
-                                <p className="ml-5 text-sm sm:text-base text-muted-foreground">
-                                    Trusted by{" "}
-                                    <strong className="font-bold text-foreground">
-                                        {trustCount}
-                                    </strong>{" "}
-                                    {trustText}
-                                </p>
-                            </div>
-                        </FadeIn>
-                    </div>
+                        </div>
+                    </FadeIn>
                 </div>
             </div>
-        </section>
+        </div>
     );
 }
 

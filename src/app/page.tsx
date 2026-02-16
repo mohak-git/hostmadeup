@@ -1,33 +1,28 @@
 import { Footer, Navbar } from "@/components/layout";
 import {
-    BentoCell,
-    BentoGrid,
-    BentoStat,
-    ComparisonTable,
-    FeaturesBento,
+    DomainSearchBar,
+    Features,
     Hero,
-    ProductSelector,
+    Services,
 } from "@/components/marketing";
-import { PricingTable } from "@/components/marketing/pricing-table";
-import { Button } from "@/components/ui/button";
-import { FadeIn } from "@/components/visuals/fade-in";
-import { SectionHeading } from "@/components/visuals/section-heading";
-import { trustSignals } from "@/config/features";
-import { webHostingPlans } from "@/config/pricing";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { HeroDecorations } from "@/components/visuals/hero-decorations";
 
 export default function HomePage() {
     return (
         <>
-            <div>
-                <Navbar />
-                <main>
-                    {/* Hero */}
+            <Navbar />
+            <main>
+                <section className="relative overflow-hidden bg-background font-sans z-0">
+                    <div className="absolute inset-0 -z-10 bg-brand-500/20 [clip-path:polygon(0%_100%,100%_60%,100%_100%,0%_100%)]" />
+                    <HeroDecorations />
                     <Hero
-                        titleLine1="Bring Your Ideas"
-                        titleHighlight="Online."
-                        titleLine2="Effortlessly."
+                        title="Launch Your Website"
+                        titleHighlight={[
+                            "Instantly",
+                            "Effortlessly",
+                            "Securely",
+                            "Globally",
+                        ]}
                         description="Fast, reliable & secure hosting built for creators. Deploy your site in seconds with our automated cloud infrastructure."
                         heroImage="/HeroImage.png"
                         primaryCta={{
@@ -39,23 +34,39 @@ export default function HomePage() {
                             href: "/contact",
                         }}
                     />
+                </section>
 
-                    {/* Product Selector */}
-                    <section className="relative border-b border-border bg-(--accent-fill-heavy) pt-6 pb-24 overflow-hidden">
-                        <div className="container relative mx-auto px-4">
-                            <FadeIn>
-                                <SectionHeading
-                                    title="Choose Your Solution"
-                                    description="Scalable infrastructure for every stage of your growth journey."
-                                />
-                            </FadeIn>
-                            <FadeIn delay={100}>
-                                <ProductSelector />
-                            </FadeIn>
-                        </div>
-                    </section>
-                    {/* Features */}
-                    <section className="relative border-b border-border bg-muted/30 py-24 overflow-hidden">
+                <section className="relative z-1 bg-brand-500/20">
+                    <div className="absolute inset-0 -z-10 bg-background [clip-path:polygon(0%_45%,100%_45%,100%_100%,0%_100%)]" />
+                    <div className="absolute inset-0 -z-10 bg-brand-500/20 [clip-path:polygon(0%_55%,100%_55%,100%_100%,0%_100%)]" />
+
+                    <DomainSearchBar />
+                </section>
+
+                <section className="relative bg-brand-500/20">
+                    <div className="absolute inset-0 bg-brand-200/90 [clip-path:polygon(0%_77.6%,100%_96%,100%_100%,0%_100%)]" />
+                    <div className="absolute inset-0 bg-background [clip-path:polygon(0%_100%,100%_90%,100%_100%,0%_100%)]" />
+                    <div className="absolute inset-0 bg-brand-500/30 [clip-path:polygon(0%_75%,80%_100%,65%_100%,0%_78%)]" />
+
+                    <Services
+                        title="Everything You Need to"
+                        titleHighlight="Ship & Scale"
+                        description="Infrastructure that grows with you."
+                    />
+                </section>
+
+                <section className="relative">
+                    <div className="absolute inset-0 bg-brand-500/30 [clip-path:polygon(65%_0%,80%_0%,60%_100%,10%_100%)]" />
+
+                    <Features
+                        title="Why Teams Choose"
+                        titleHighlight="Hostmadeup"
+                        description="Enterprise-grade power without enterprise nonsense."
+                    />
+                </section>
+
+                {/* Features */}
+                {/* <section className="relative border-b border-border bg-muted/30 py-24 overflow-hidden">
                         <div className="absolute inset-0 bg-grid-pattern opacity-[0.2] pointer-events-none" />
                         <div className="container relative mx-auto px-4">
                             <FadeIn>
@@ -68,9 +79,9 @@ export default function HomePage() {
                                 <FeaturesBento />
                             </FadeIn>
                         </div>
-                    </section>
-                    {/* Trust Signals Bento */}
-                    <section className="relative border-b border-border bg-card py-24">
+                    </section> */}
+                {/* Trust Signals Bento */}
+                {/* <section className="relative border-b border-border bg-card py-24">
                         <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none" />
                         <div className="container relative mx-auto px-4">
                             <FadeIn>
@@ -109,9 +120,9 @@ export default function HomePage() {
                                 </BentoGrid>
                             </FadeIn>
                         </div>
-                    </section>
-                    {/* Competitor Comparison */}
-                    <section className="relative border-b border-border py-24">
+                    </section> */}
+                {/* Competitor Comparison */}
+                {/* <section className="relative border-b border-border py-24">
                         <div className="container mx-auto px-4">
                             <FadeIn>
                                 <SectionHeading
@@ -123,9 +134,9 @@ export default function HomePage() {
                                 <ComparisonTable />
                             </FadeIn>
                         </div>
-                    </section>
-                    {/* Pricing Teaser */}
-                    <section
+                    </section> */}
+                {/* Pricing Teaser */}
+                {/* <section
                         id="pricing"
                         className="relative border-b border-border bg-muted/30 py-24 overflow-hidden"
                     >
@@ -143,9 +154,9 @@ export default function HomePage() {
                                 <PricingTable plans={webHostingPlans} />
                             </FadeIn>
                         </div>
-                    </section>
-                    {/* Final CTA */}
-                    <section className="relative border-b border-border overflow-hidden bg-zinc-950 text-white py-32">
+                    </section> */}
+                {/* Final CTA */}
+                {/* <section className="relative border-b border-border overflow-hidden bg-zinc-950 text-white py-32">
                         <div className="absolute inset-0 bg-brand-950/20" />
                         <div className="container relative mx-auto px-4 text-center">
                             <FadeIn>
@@ -181,10 +192,9 @@ export default function HomePage() {
                                 </div>
                             </FadeIn>
                         </div>
-                    </section>
-                </main>
-                <Footer />
-            </div>
+                    </section> */}
+            </main>
+            <Footer />
         </>
     );
 }

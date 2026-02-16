@@ -21,6 +21,8 @@ export function Navbar() {
             if (window.scrollY > 0) setNavbarHovered(true);
             else setNavbarHovered(false);
         };
+
+        handleScroll();
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
@@ -28,22 +30,22 @@ export function Navbar() {
     return (
         <header
             className={cn(
-                "sticky top-0 z-50 h-15 flex justify-center items-center w-full bg-transparent transition-all duration-700 ease-in-out border-b border-foreground",
+                "sticky top-0 z-50 h-[10vh] flex justify-center items-center w-full bg-transparent transition-all duration-700 ease-in-out",
                 navbarHovered &&
-                    "border-border bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60",
+                    "border border-border bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60",
             )}
         >
-            <div className="container mx-auto flex h-14 items-center justify-between px-4">
+            <div className="container max-w-8xl mx-auto px-6 lg:px-12 flex h-[10vh] items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2">
-                    <Server className="h-5 w-5" />
-                    <span className="font-mono text-sm font-bold tracking-tight">
+                    <Server className="h-7 w-7" />
+                    <span className="font-mono text-xl font-extrabold tracking-tight">
                         {siteConfig.name.toUpperCase()}
                     </span>
                 </Link>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden lg:flex items-center gap-1">
+                <nav className="hidden lg:flex items-center gap-4 h-[10vh]">
                     {mainNav.map((item) => (
                         <div
                             key={item.title}
@@ -55,7 +57,7 @@ export function Navbar() {
                                 <>
                                     <button
                                         className={cn(
-                                            "flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors hover:text-foreground",
+                                            "flex items-center gap-1 px-3 py-2 font-medium transition-colors hover:text-foreground",
                                             hoveredItem === item.title
                                                 ? "text-foreground"
                                                 : "text-muted-foreground",
@@ -75,7 +77,7 @@ export function Navbar() {
                                     {hoveredItem === item.title && (
                                         <div className="absolute left-0 top-full pt-2">
                                             <div className="border border-border bg-background p-4 shadow-lg min-w-[280px]">
-                                                <div className="grid gap-1">
+                                                <div className="grid grid-cols-2 gap-1 min-w-150">
                                                     {item.children.map(
                                                         (child) => (
                                                             <NavLink
@@ -96,7 +98,7 @@ export function Navbar() {
                                 <Link
                                     href={item.href || "#"}
                                     className={cn(
-                                        "px-3 py-2 text-sm font-medium transition-colors hover:text-foreground",
+                                        "px-3 py-2 font-medium transition-colors hover:text-foreground",
                                         pathname === item.href
                                             ? "text-foreground"
                                             : "text-muted-foreground",
@@ -111,7 +113,10 @@ export function Navbar() {
 
                 {/* Right Side */}
                 <div className="flex items-center gap-2">
-                    <Button size="sm" className="hidden sm:inline-flex">
+                    <Button
+                        size="lg"
+                        className="hidden sm:inline-flex font-bold"
+                    >
                         Log In
                     </Button>
                     <MobileNav />
