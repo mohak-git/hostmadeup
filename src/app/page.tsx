@@ -12,7 +12,6 @@ import { PricingTable } from "@/components/marketing/pricing-table";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/visuals/fade-in";
 import { SectionHeading } from "@/components/visuals/section-heading";
-import { WaveBackground, WavyWave } from "@/components/visuals/wave-background";
 import { trustSignals } from "@/config/features";
 import { webHostingPlans } from "@/config/pricing";
 import { ArrowRight } from "lucide-react";
@@ -22,23 +21,24 @@ export default function HomePage() {
     return (
         <>
             <div>
-                <WaveBackground />
-
                 <Navbar />
                 <main>
                     {/* Hero */}
                     <Hero
-                        title="Hosting Built for"
-                        titleHighlight="Peak Performance"
-                        description="Deploy web apps, databases, and custom infrastructure on our global edge network"
+                        titleLine1="Bring Your Ideas"
+                        titleHighlight="Online."
+                        titleLine2="Effortlessly."
+                        description="Fast, reliable & secure hosting built for creators. Deploy your site in seconds with our automated cloud infrastructure."
+                        heroImage="/HeroImage.png"
                         primaryCta={{
-                            label: "Get Started",
+                            label: "View Plans & Pricing",
                             href: "/hosting/web",
                         }}
-                        secondaryCta={{ label: "View Plans", href: "#pricing" }}
+                        secondaryCta={{
+                            label: "Chat with Sales",
+                            href: "/contact",
+                        }}
                     />
-
-                    <WavyWave />
 
                     {/* Product Selector */}
                     <section className="relative border-b border-border bg-(--accent-fill-heavy) pt-6 pb-24 overflow-hidden">

@@ -1,6 +1,5 @@
 "use client";
 
-import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { mainNav, type NavItem } from "@/config/navigation";
@@ -112,7 +111,6 @@ export function Navbar() {
 
                 {/* Right Side */}
                 <div className="flex items-center gap-2">
-                    <ThemeToggle />
                     <Button size="sm" className="hidden sm:inline-flex">
                         Log In
                     </Button>

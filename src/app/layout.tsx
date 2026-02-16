@@ -1,4 +1,3 @@
-import { Providers } from "@/components/providers";
 import { inter, jetbrainsMono } from "@/lib/fonts";
 import type { Metadata } from "next";
 import "./globals.css";
@@ -30,7 +29,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
             <body
                 className={`${inter.variable} ${jetbrainsMono.variable} font-sans min-h-screen bg-background text-foreground antialiased`}
             >
-                <Providers>{children}</Providers>
+                {children}
             </body>
         </html>
     );
