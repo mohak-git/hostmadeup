@@ -142,7 +142,7 @@ export function Features({
         <div
             ref={scrollContainerRef}
             className="container max-w-7xl mx-auto px-6 lg:px-12 py-20"
-            style={{ height: `${(features.length + 1) * 65}vh` }}
+            style={{ height: `${(features.length + 1) * 150}vh` }}
         >
             <FadeIn className="sticky top-0 sm:top-[15vh] pb-0.5">
                 <SectionHeading
@@ -161,8 +161,6 @@ export function Features({
                         <FeatureCard
                             feature={feature}
                             progress={cardProgress[index]}
-                            index={index}
-                            total={features.length}
                         />
                     </FadeIn>
                 </div>

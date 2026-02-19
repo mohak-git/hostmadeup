@@ -1,4 +1,4 @@
-import { inter, jetbrainsMono } from "@/lib/fonts";
+import { dmSans, jetbrainsMono } from "@/lib/fonts";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -27,7 +27,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
     return (
         <html lang="en" suppressHydrationWarning>
             <body
-                className={`${inter.variable} ${jetbrainsMono.variable} font-sans min-h-screen bg-background text-foreground antialiased`}
+                className={`${dmSans.variable} ${jetbrainsMono.variable} font-sans min-h-screen bg-background text-foreground antialiased`}
             >
                 {children}
             </body>

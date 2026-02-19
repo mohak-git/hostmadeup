@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { RotatingText } from "@/components/ui/rotating-text";
+import { Highlighter } from "@/components/ui/text-highlighter";
 import { UserBadge } from "@/components/ui/user-badge";
 import { FadeIn } from "@/components/visuals/fade-in";
+import { Check } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,6 +11,7 @@ interface HeroProps {
     title: string;
     titleHighlight: string[];
     description: string;
+    keyPoints: { prefix?: string; highlight?: string; suffix?: string }[];
     heroImage: string;
     primaryCta: { label: string; href: string };
     secondaryCta: { label: string; href: string };
@@ -20,6 +23,7 @@ export function Hero({
     title,
     titleHighlight,
     description,
+    keyPoints,
     heroImage,
     primaryCta,
     secondaryCta,
@@ -37,7 +41,7 @@ export function Hero({
                         width={800}
                         height={600}
                         priority
-                        className="object-contain rounded-xl shadow-lg shadow-foreground/10"
+                        className="object-contain rounded-xl scale-175 relative lg:-left-14 -left-8"
                     />
                 </FadeIn>
 
@@ -67,9 +71,29 @@ export function Hero({
 
                     {/* Description */}
                     <FadeIn className="w-full" delay={150}>
-                        <p className="text-base md:text-lg text-muted-foreground/90 max-w-lg mb-8 leading-relaxed">
+                        <p className="text-base md:text-lg text-muted-foreground/90 max-w-lg mb-6 leading-relaxed">
                             {description}
                         </p>
+                    </FadeIn>
+
+                    <FadeIn>
+                        <div className="mb-12 flex flex-col justify-center gap-2">
+                            {keyPoints.map((point, index) => (
+                                <div className="flex items-center gap-2 text-sm">
+                                    <Check
+                                        size={16}
+                                        className="text-brand-500"
+                                    />
+                                    <p key={index}>
+                                        <span>{point.prefix}</span>
+                                        <Highlighter action="underline">
+                                            {point.highlight}
+                                        </Highlighter>
+                                        <span>{point.suffix}</span>
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
                     </FadeIn>
 
                     {/* CTAs */}

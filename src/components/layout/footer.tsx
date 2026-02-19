@@ -1,156 +1,105 @@
-import { Separator } from "@/components/ui/separator";
 import { footerNav } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 import { Server } from "lucide-react";
 import Link from "next/link";
 
+function FooterColumn({
+    title,
+    links,
+}: {
+    title: string;
+    links: { title: string; href: string }[];
+}) {
+    return (
+        <div>
+            <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-white/30">
+                {title}
+            </p>
+            <ul className="flex flex-col gap-3">
+                {links.map((item) => (
+                    <li key={item.href}>
+                        <Link
+                            href={item.href}
+                            className="text-sm text-white/50 transition-colors hover:text-white/90"
+                        >
+                            {item.title}
+                        </Link>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+
+function FooterBrand() {
+    return (
+        <div className="lg:col-span-1 xl:col-span-2 lg:w-80 shrink-0">
+            <Link href="/" className="flex items-center gap-2 text-accent mb-5">
+                <Server className="h-7 w-7" />
+                <span className="font-mono text-xl font-extrabold">
+                    {siteConfig.name.toUpperCase()}
+                </span>
+            </Link>
+
+            <p className="max-w-3xs text-sm leading-6.5 text-white/40">
+                Enterprise-grade infrastructure. Built for teams that demand
+                reliability.
+            </p>
+        </div>
+    );
+}
+
+function FooterBottom() {
+    const currentYear = new Date().getFullYear();
+
+    return (
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-6 text-center md:text-left border-t border-white/50">
+            <span className="text-xs text-white/30">
+                &copy; {currentYear} {siteConfig.name}, Inc. All rights
+                reserved.
+            </span>
+
+            <div className="flex items-center gap-6 text-xs text-white/30">
+                {["Privacy", "Terms", "Cookies"].map((item) => (
+                    <Link
+                        href={`/${item.toLowerCase()}`}
+                        className="transition hover:text-white/60"
+                    >
+                        {item}
+                    </Link>
+                ))}
+            </div>
+        </div>
+    );
+}
+
 export function Footer() {
     return (
-        <footer className="border-t border-border bg-background">
-            <div className="container mx-auto px-4 py-12">
-                {/* Main Footer Grid */}
-                <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
-                    {/* Hosting */}
-                    <div>
-                        <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
-                            Hosting
-                        </h3>
-                        <ul className="space-y-2">
-                            {footerNav.hosting.map((item) => (
-                                <li key={item.href}>
-                                    <Link
-                                        href={item.href}
-                                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                                    >
-                                        {item.title}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+        <footer className="border-t border-white/5 bg-[#0a0a0a] pt-20 pb-6 font-sans">
+            <div className="mx-auto max-w-8xl px-6 lg:px-12">
+                <div className="flex flex-col gap-16 pb-16 md:flex-row lg:gap-12">
+                    <FooterBrand />
 
-                    {/* VPS */}
-                    <div>
-                        <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
-                            VPS
-                        </h3>
-                        <ul className="space-y-2">
-                            {footerNav.vps.map((item) => (
-                                <li key={item.href}>
-                                    <Link
-                                        href={item.href}
-                                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                                    >
-                                        {item.title}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Domains */}
-                    <div>
-                        <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
-                            Domains
-                        </h3>
-                        <ul className="space-y-2">
-                            {footerNav.domains.map((item) => (
-                                <li key={item.href}>
-                                    <Link
-                                        href={item.href}
-                                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                                    >
-                                        {item.title}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Email */}
-                    <div>
-                        <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
-                            Email
-                        </h3>
-                        <ul className="space-y-2">
-                            {footerNav.email.map((item) => (
-                                <li key={item.href}>
-                                    <Link
-                                        href={item.href}
-                                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                                    >
-                                        {item.title}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Company */}
-                    <div>
-                        <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
-                            Company
-                        </h3>
-                        <ul className="space-y-2">
-                            {footerNav.company.map((item) => (
-                                <li key={item.href}>
-                                    <Link
-                                        href={item.href}
-                                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                                    >
-                                        {item.title}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Legal */}
-                    <div>
-                        <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
-                            Legal
-                        </h3>
-                        <ul className="space-y-2">
-                            {footerNav.legal.map((item) => (
-                                <li key={item.href}>
-                                    <Link
-                                        href={item.href}
-                                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                                    >
-                                        {item.title}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
+                    <div className="grid flex-1 grid-cols-2 gap-10 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6">
+                        <FooterColumn
+                            title="Hosting"
+                            links={footerNav.hosting}
+                        />
+                        <FooterColumn title="VPS" links={footerNav.vps} />
+                        <FooterColumn
+                            title="Domains"
+                            links={footerNav.domains}
+                        />
+                        <FooterColumn title="Email" links={footerNav.email} />
+                        <FooterColumn
+                            title="Company"
+                            links={footerNav.company}
+                        />
+                        <FooterColumn title="Legal" links={footerNav.legal} />
                     </div>
                 </div>
 
-                <Separator className="my-8" />
-
-                {/* Bottom Bar */}
-                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                    <div className="flex items-center gap-2">
-                        <Server className="h-4 w-4" />
-                        <span className="font-mono text-xs font-bold tracking-tight">
-                            {siteConfig.name.toUpperCase()}
-                        </span>
-                    </div>
-
-                    <div className="flex flex-wrap gap-4 text-xs text-muted-foreground">
-                        <span>
-                            © {new Date().getFullYear()} {siteConfig.name}. All
-                            rights reserved.
-                        </span>
-                        <span className="hidden sm:inline">•</span>
-                        <span className="font-mono">
-                            {siteConfig.stats.uptime} Uptime
-                        </span>
-                        <span className="hidden sm:inline">•</span>
-                        <span className="font-mono">
-                            {siteConfig.stats.datacenters} Data Centers
-                        </span>
-                    </div>
-                </div>
+                <FooterBottom />
             </div>
         </footer>
     );

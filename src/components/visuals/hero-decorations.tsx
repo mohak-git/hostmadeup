@@ -78,47 +78,6 @@ export function HeroDecorations() {
                     fill="url(#hero-grid)"
                     mask="url(#hero-grid-mask)"
                 />
-
-                <g
-                    stroke="var(--color-brand-400)"
-                    strokeWidth="1"
-                    fill="none"
-                    opacity="0.8"
-                    strokeLinecap="round"
-                >
-                    <polyline points="100%,80 85%,80 85%,160 92%,160" />
-                    <polyline points="85%,120 78%,120 78%,200" />
-                    <circle
-                        cx="85%"
-                        cy="80"
-                        r="3"
-                        fill="var(--color-brand-400)"
-                    />
-                    <circle
-                        cx="85%"
-                        cy="120"
-                        r="2.5"
-                        fill="var(--color-brand-400)"
-                    />
-                    <circle
-                        cx="85%"
-                        cy="160"
-                        r="2.5"
-                        fill="var(--color-brand-400)"
-                    />
-                    <circle
-                        cx="78%"
-                        cy="120"
-                        r="2"
-                        fill="var(--color-brand-400)"
-                    />
-                    <circle
-                        cx="78%"
-                        cy="200"
-                        r="2.5"
-                        fill="var(--color-brand-400)"
-                    />
-                </g>
             </svg>
         </div>
     );

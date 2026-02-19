@@ -24,16 +24,9 @@ export interface FeatureItem {
 interface FeatureCardProps {
     feature: FeatureItem;
     progress: number;
-    index: number;
-    total: number;
 }
 
-export function FeatureCard({
-    feature,
-    progress,
-    index,
-    total,
-}: FeatureCardProps) {
+export function FeatureCard({ feature, progress }: FeatureCardProps) {
     const imageUrl = feature.imageUrl?.trim() ?? "";
     const hasImage = Boolean(imageUrl);
     const src = hasImage ? imageUrl : "/features-placeholder.svg";
@@ -47,7 +40,7 @@ export function FeatureCard({
         <div
             className={cn(
                 "relative rounded-3xl overflow-hidden w-full bg-background grid grid-cols-1 sm:grid-cols-2 gap-0",
-                !isVisible && "pointer-events-none",
+                !isVisible && "pointer-events-none select-none",
             )}
             style={{
                 opacity,
@@ -60,7 +53,7 @@ export function FeatureCard({
             <div className="absolute top-0 left-0 right-0 h-1 z-1 transition-colors duration-500 ease-out bg-secondary" />
 
             {/* Content */}
-            <div className="relative p-8 lg:p-12 xl:p-16 flex flex-col justify-center overflow-hidden">
+            <div className="relative p-8 lg:p-12 flex flex-col justify-center overflow-hidden">
                 {/* Title */}
                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight mb-5">
                     {feature.title}
